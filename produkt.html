@@ -1,20 +1,23 @@
-
 <!DOCTYPE html>
-<html>
-<head><title>{{ produkt.nazwa }}</title></head>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ produkt.nazwa }}</title>
+</head>
 <body>
-<h1>{{ produkt.nazwa }}</h1>
-<p>Cena: {{ produkt.cena }} CHF</p>
-<p>Status: {{ produkt.status }}</p>
-<p>{{ produkt.opis }}</p>
+    <h1>{{ produkt.nazwa }}</h1>
+    <p><strong>Preis:</strong> {{ produkt.cena }} CHF inkl. MwSt.</p>
+    <p><strong>Status:</strong> {{ produkt.status }}</p>
+    <p>{{ produkt.opis }}</p>
 
-<h2>📩 Zapytaj o produkt</h2>
-<form method="POST" action="/kontakt/{{ produkt.id }}">
-  <p>Imię:<br><input type="text" name="imie" required></p>
-  <p>Email:<br><input type="email" name="email" required></p>
-  <p>Wiadomość:<br><textarea name="wiadomosc" rows="5" required></textarea></p>
-  <p><button type="submit">Wyślij</button></p>
-</form>
-<p><a href="/">⬅️ Powrót</a></p>
+    <form method="POST" action="/kontakt/{{ produkt.id }}">
+        <h3>Kontaktformular</h3>
+        <input type="text" name="imie" placeholder="Ihr Name" required><br>
+        <input type="email" name="email" placeholder="Ihre E-Mail" required><br>
+        <textarea name="wiadomosc" placeholder="Ihre Nachricht" required></textarea><br>
+        <button type="submit">Anfrage senden</button>
+    </form>
+
+    <p><a href="/">🔙 Zurück zum Shop</a></p>
 </body>
 </html>
