@@ -1,17 +1,24 @@
-
 <!DOCTYPE html>
-<html>
-<head><title>Weizungmaterial.ch – Matrix Webshop</title></head>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Heizungsmaterial Shop</title>
+</head>
 <body>
-<h1>🧠 Matrix Webshop – Weizungmaterial.ch</h1>
-{% for p in produkty %}
-<div style="border:1px solid #ccc;padding:10px;margin:10px;">
-  <h2>{{ p.nazwa }}</h2>
-  <p>Cena: {{ p.cena }} CHF</p>
-  <p>Status: {{ p.status }}</p>
-  <p>{{ p.opis }}</p>
-  <a href="/produkt/{{ p.id }}">➡️ Zobacz szczegóły</a>
-</div>
-{% endfor %}
+    <h1>🛠️ Heizungsmaterial – Produkty</h1>
+
+    {% if produkty %}
+        <ul>
+        {% for produkt in produkty %}
+            <li>
+                <a href="/produkt/{{ produkt.id }}">
+                    {{ produkt.nazwa }} – {{ produkt.cena }} CHF
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Brak produktów do wyświetlenia.</p>
+    {% endif %}
 </body>
 </html>
